@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Salesforce SOQL Builder</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="styles/popup.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-content">
+                <img src="icons/salesforce-logo.png" alt="Salesforce" class="sf-logo">
+                <h1>SOQL Query Builder</h1>
+                <button id="helpButton" class="icon-button help-button" title="How to use">
+                    <span class="material-icons">help_outline</span>
+                </button>
+            </div>
+        </header>
+
+        <div id="helpModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>How to Use SOQL Builder</h2>
+                    <button class="icon-button close-button">
+                        <span class="material-icons">close</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h3>Quick Guide</h3>
+                    <ol>
+                        <li>Select a Salesforce object from the dropdown</li>
+                        <li>Add WHERE conditions using the "Add Condition" button</li>
+                        <li>Choose fields and operators for each condition</li>
+                        <li>Use AND/OR operators to combine multiple conditions</li>
+                        <li>Add ORDER BY and LIMIT clauses if needed</li>
+                        <li>Copy the generated query using the copy button</li>
+                    </ol>
+
+                    <h3>Tips</h3>
+                    <ul>
+                        <li>OR conditions are automatically grouped with parentheses</li>
+                        <li>Use LIKE operator with % for partial matches</li>
+                        <li>Use IN operator for multiple values (comma-separated)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <main class="app-main">
+            <!-- Object Selection -->
+            <div class="form-group">
+                <label>Select Object</label>
+                <div class="select-wrapper">
+                    <select id="objectSelect" class="material-select">
+                        <option value="">Select an object</option>
+                    </select>
+                    <span class="material-icons">expand_more</span>
+                </div>
+            </div>
+
+            <!-- WHERE Conditions -->
+            <div class="form-group">
+                <div class="section-header">
+                    <label>WHERE Conditions</label>
+                    <button id="addCondition" class="button primary">
+                        <span class="material-icons">add</span>
+                        Add Condition
+                    </button>
+                </div>
+                <div id="whereConditions" class="conditions-container">
+                    <div class="condition-row">
+                        <div class="select-wrapper field-select">
+                            <select class="material-select">
+                                <option value="">Select field</option>
+                            </select>
+                            <span class="material-icons">expand_more</span>
+                        </div>
+                        <div class="select-wrapper operator-select">
+                            <select class="material-select">
+                                <option value="=">=</option>
+                                <option value="!=">!=</option>
+                                <option value="LIKE">LIKE</option>
+                                <option value=">">></option>
+                                <option value="<"><</option>
+                                <option value=">=">>=</option>
+                                <option value="<="><=</option>
+                                <option value="IN">IN</option>
+                                <option value="NOT IN">NOT IN</option>
+                            </select>
+                            <span class="material-icons">expand_more</span>
+                        </div>
+                        <div class="value-input-wrapper">
+                            <input type="text" class="material-input" placeholder="Value">
+                        </div>
+                        <div class="select-wrapper logical-operator-select">
+                            <select class="material-select">
+                                <option value="AND">AND</option>
+                                <option value="OR">OR</option>
+                            </select>
+                            <span class="material-icons">expand_more</span>
+                        </div>
+                        <button class="icon-button remove-condition">
+                            <span class="material-icons">close</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ORDER BY -->
+            <div class="form-group">
+                <label>ORDER BY</label>
+                <div class="order-by-container">
+                    <div class="select-wrapper field-select">
+                        <select id="orderByField" class="material-select">
+                            <option value="">Select field</option>
+                        </select>
+                        <span class="material-icons">expand_more</span>
+                    </div>
+                    <div class="select-wrapper direction-select">
+                        <select id="orderDirection" class="material-select">
+                            <option value="ASC">ASC</option>
+                            <option value="DESC">DESC</option>
+                        </select>
+                        <span class="material-icons">expand_more</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LIMIT -->
+            <div class="form-group">
+                <label>LIMIT</label>
+                <input type="number" id="limitInput" class="material-input" placeholder="Enter limit">
+            </div>
+
+            <!-- Generated Query -->
+            <div class="form-group query-preview">
+                <div class="section-header">
+                    <label>Generated Query</label>
+                    <button id="copyQuery" class="button secondary">
+                        <span class="material-icons">content_copy</span>
+                        Copy Query
+                    </button>
+                </div>
+                <pre id="queryPreview" class="query-box">SELECT Id FROM</pre>
+            </div>
+        </main>
+    </div>
+    <script src="js/queryBuilder.js"></script>
+</body>
+</html>

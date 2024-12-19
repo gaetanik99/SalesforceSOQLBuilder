@@ -1,0 +1,298 @@
+:root {
+    /* Salesforce Colors */
+    --sf-blue: #0070D2;
+    --sf-blue-hover: #005FB2;
+    --sf-header: #F7F9FB;
+    --sf-background: #FFFFFF;
+    --sf-border: #D8DDE6;
+    --sf-text: #16325C;
+    --sf-text-light: #54698D;
+    --sf-success: #04844B;
+    --sf-error: #C23934;
+    --sf-highlight: #1589EE;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Salesforce Sans', Arial, sans-serif;
+    color: var(--sf-text);
+    background-color: var(--sf-background);
+    min-width: 500px;
+    max-width: 800px;
+}
+
+/* Header */
+.app-header {
+    background-color: var(--sf-header);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--sf-border);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sf-logo {
+    height: 24px;
+    width: auto;
+}
+
+.app-header h1 {
+    margin: 0;
+    font-size: 18px;
+    color: var(--sf-text);
+    flex-grow: 1;
+}
+
+/* Main Content */
+.app-main {
+    padding: 16px;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--sf-text);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Inputs and Selects */
+.material-input,
+.material-select {
+    width: 100%;
+    height: 32px;
+    padding: 0 12px;
+    border: 1px solid var(--sf-border);
+    border-radius: 4px;
+    background-color: white;
+    color: var(--sf-text);
+    font-size: 13px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.material-select {
+    padding-right: 32px;
+    appearance: none;
+    cursor: pointer;
+}
+
+.material-input:hover,
+.material-select:hover {
+    border-color: var(--sf-blue);
+}
+
+.material-input:focus,
+.material-select:focus {
+    outline: none;
+    border-color: var(--sf-blue);
+    box-shadow: 0 0 0 1px var(--sf-blue);
+}
+
+/* Buttons */
+.button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 32px;
+    padding: 0 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.button .material-icons {
+    font-size: 18px;
+}
+
+.button.primary {
+    background-color: var(--sf-blue);
+    color: white;
+}
+
+.button.primary:hover {
+    background-color: var(--sf-blue-hover);
+}
+
+.button.secondary {
+    background-color: transparent;
+    border: 1px solid var(--sf-blue);
+    color: var(--sf-blue);
+}
+
+.button.secondary:hover {
+    background-color: rgba(0, 112, 210, 0.1);
+}
+
+/* Conditions */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.conditions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.condition-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr 1fr auto;
+    gap: 8px;
+    align-items: center;
+    padding: 8px;
+    background-color: var(--sf-header);
+    border-radius: 4px;
+}
+
+/* Select Wrapper */
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper .material-icons {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--sf-text-light);
+    pointer-events: none;
+    font-size: 18px;
+}
+
+/* Query Preview */
+.query-preview {
+    background-color: var(--sf-header);
+    border-radius: 4px;
+    padding: 16px;
+}
+
+.query-box {
+    margin: 0;
+    padding: 12px;
+    background-color: white;
+    border: 1px solid var(--sf-border);
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+/* Icons */
+.icon-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    border-radius: 4px;
+    background: transparent;
+    cursor: pointer;
+    color: var(--sf-text-light);
+    transition: background-color 0.2s;
+}
+
+.icon-button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.icon-button .material-icons {
+    font-size: 18px;
+}
+
+.help-button {
+    color: var(--sf-blue);
+}
+
+/* Remove Button */
+.remove-condition {
+    color: var(--sf-error);
+}
+
+/* Order By */
+.order-by-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 8px;
+    align-items: start;
+}
+
+/* Help Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    border-bottom: 1px solid var(--sf-border);
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 16px;
+    color: var(--sf-text);
+}
+
+.modal-body {
+    padding: 16px;
+}
+
+.modal-body h3 {
+    color: var(--sf-text);
+    font-size: 14px;
+    margin: 0 0 12px 0;
+}
+
+.modal-body ol,
+.modal-body ul {
+    margin: 0 0 16px 0;
+    padding-left: 24px;
+}
+
+.modal-body li {
+    margin-bottom: 6px;
+    color: var(--sf-text-light);
+    font-size: 13px;
+}
