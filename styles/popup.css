@@ -38,6 +38,7 @@ body {
 .sf-logo {
     height: 24px;
     width: auto;
+    margin-right: 12px;
 }
 
 .app-header h1 {
@@ -152,11 +153,28 @@ body {
 .condition-row {
     display: grid;
     grid-template-columns: 2fr 1fr 2fr 1fr auto;
-    gap: 8px;
+    gap: 12px;
     align-items: center;
     padding: 8px;
     background-color: var(--sf-header);
     border-radius: 4px;
+    margin-right: 90px; /* Space for AND/OR */
+}
+
+.condition-row .material-select {
+    min-width: 80px;
+    width: 100%;
+}
+
+.condition-row .material-input {
+    min-width: 120px;
+    width: 100%;
+}
+
+.condition-row .logical-operator {
+    position: absolute;
+    right: -90px;
+    width: 80px;
 }
 
 /* Select Wrapper */

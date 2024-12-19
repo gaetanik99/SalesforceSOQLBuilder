@@ -9,7 +9,7 @@
     <div class="app-container">
         <header class="app-header">
             <div class="header-content">
-                <img src="icons/salesforce-logo.png" alt="Salesforce" class="sf-logo">
+                <img src="https://www.salesforce.com/content/dam/sfdc-docs/www/logos/logo-salesforce.svg" alt="Salesforce" class="sf-logo">
                 <h1>SOQL Query Builder</h1>
                 <button id="helpButton" class="icon-button help-button" title="How to use">
                     <span class="material-icons">help_outline</span>
@@ -49,10 +49,18 @@
         <main class="app-main">
             <!-- Object Selection -->
             <div class="form-group">
-                <label>Select Object</label>
+                <label for="objectSelect">Select Object</label>
                 <div class="select-wrapper">
                     <select id="objectSelect" class="material-select">
                         <option value="">Select an object</option>
+                        <option value="Account">Account</option>
+                        <option value="Contact">Contact</option>
+                        <option value="Lead">Lead</option>
+                        <option value="Opportunity">Opportunity</option>
+                        <option value="Case">Case</option>
+                        <option value="Task">Task</option>
+                        <option value="Event">Event</option>
+                        <option value="User">User</option>
                     </select>
                     <span class="material-icons">expand_more</span>
                 </div>
@@ -113,6 +121,10 @@
                     <div class="select-wrapper field-select">
                         <select id="orderByField" class="material-select">
                             <option value="">Select field</option>
+                            <option value="Id">Id</option>
+                            <option value="Name">Name</option>
+                            <option value="CreatedDate">Created Date</option>
+                            <option value="LastModifiedDate">Last Modified Date</option>
                         </select>
                         <span class="material-icons">expand_more</span>
                     </div>
@@ -128,7 +140,7 @@
 
             <!-- LIMIT -->
             <div class="form-group">
-                <label>LIMIT</label>
+                <label for="limitInput">LIMIT</label>
                 <input type="number" id="limitInput" class="material-input" placeholder="Enter limit">
             </div>
 
